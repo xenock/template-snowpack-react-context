@@ -3,8 +3,18 @@
     "start": "snowpack dev",
     "build": "snowpack build",
     "test": "jest",
-    "eslinter": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
     "format": "prettier-standard --format"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "prettier-standard --lint",
+      "git add"
+    ]
   },
   "dependencies": {
     "react": "^16.13.0",
@@ -14,7 +24,9 @@
     "@snowpack/app-scripts-react": "^1.2.0",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.3",
+    "husky": "^4.2.5",
     "jest": "^25.4.0",
+    "lint-staged": "^10.2.11",
     "prettier-standard": "^16.3.0",
     "snowpack": "^2.5.0"
   }
